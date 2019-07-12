@@ -1,10 +1,12 @@
 # ofxHistogramFeatures
-Display Histogram of Image and get Histogram Features
+Display 6-Histogram of Image and get 4-Histogram Features
 
 ![Histogram example]( https://github.com/bemoregt/ofxHistogramFeatures/blob/master/hist.png "exmaple")
 
 ### How TO
 - Resize your image to 320x240 size & jpg format before test.
+- R,G,B Histogram & H, S,V Histograms
+- 4-Histogram features: Mean, Var, Energy, Entropy
 
 ### Algorithm
 - Histogram Mean: Intensity level of image
