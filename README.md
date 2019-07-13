@@ -25,6 +25,7 @@ Display 6-Histogram of Image and get 4-Histogram Features
 ### Next Plan
 - Add Skewness & Kurtosis
 - R, B, H, S, V Channel Features
+- Spectral Histogram Features
 
 ### Reference
 - Edited source from https://github.com/genekogan/ofxHistogram.git
