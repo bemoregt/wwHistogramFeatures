@@ -46,6 +46,53 @@ void ofApp::update(){
         histogramH = histogram.getHistogram(h, 30);
         histogramS = histogram.getHistogram(s, 30);
         histogramV = histogram.getHistogram(v, 30);
+		
+	        aa.update();
+        
+        dmean = 0.0;
+        genergy = 0.0;
+        dstddev = 0.0;
+        variance = 0.0;
+        gentropy = 0.0;
+        
+        // Mean standard algorithm --------------------
+        for (int i = 0; i < histogramG.size(); ++i)
+        {
+            dmean += i*histogramG.data()[i];
+        }
+        dmean /= histogramG.size();
+        
+        // Energy --------------------------------------
+        for (int i = 0; i < histogramG.size(); ++i)
+        {
+            genergy += histogramG.data()[i]*histogramG.data()[i];
+        }
+        //genergy /= histogramG.size();
+        
+        // Entropy --------------------------------------
+        for (int i = 0; i < histogramG.size(); ++i)
+        {
+            gentropy += histogramG.data()[i]*log(histogramG.data()[i]+1);
+        }
+        //gentropy /= histogramG.size();
+        gentropy= -gentropy;
+        
+        // Standard deviation standard algorithm -------
+        std::vector<double> var(histogramG.size());
+        for (int i = 0; i < histogramG.size(); ++i)
+        {
+            var[i] = (dmean - histogramG.data()[i]) * (dmean - histogramG.data()[i])*histogramG.data()[i];
+        }
+        for (int i = 0; i < histogramG.size(); ++i)
+        {
+            dstddev += var[i];
+        }
+        variance = dstddev / histogramG.size();;
+        
+        // log-------------------------
+        ofLog() << "Mean: " << dmean << " Variance: "
+        << variance << " Energy: " << genergy <<
+        " Entropy: " << gentropy << endl;	
     }
 }
 
@@ -94,6 +141,19 @@ void ofApp::draw(){
     ofDrawBitmapString("hue", 0, 15+height);
     ofDrawBitmapString("saturation", width, 15+height);
     ofDrawBitmapString("value", 2*width, 15+height);
+	
+    aa.draw(320, 480, 320, 240);
+    
+    // filled box
+    //ofSetColor(10, 10, 10);
+    //ofDrawRectangle(5, 485, 200, 100);
+    
+    // text
+    ofSetColor(255);
+    ofDrawBitmapString("Green Mean= " + ofToString(dmean), 20, 490+30);
+    ofDrawBitmapString("Green Variance= " + ofToString(variance), 20, 490+50);
+    ofDrawBitmapString("Green Energy= " + ofToString(genergy), 20, 490+70);
+    ofDrawBitmapString("Green Entropy= " + ofToString(gentropy), 20, 490+90);
 
 }
 
