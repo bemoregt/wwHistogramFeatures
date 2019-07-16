@@ -23,6 +23,13 @@ public:
     ofxCvGrayscaleImage r, g, b;
     ofxCvGrayscaleImage h, s, v;
     
+        ofImage     aa;
+    double dmean ;
+    double genergy ;
+    double dstddev ;
+    double variance ;
+    double gentropy ;
+    
     vector<float> histogramR, histogramG, histogramB;
     vector<float> histogramH, histogramS, histogramV;
 };
