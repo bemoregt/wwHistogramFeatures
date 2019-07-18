@@ -5,6 +5,8 @@ Display 6-Histogram of Image and get 4-Histogram Features
 
 ![Histogram example3]( https://github.com/bemoregt/ofxHistogramFeatures/blob/master/lab.jpg "exmaple")
 
+![Histogram example4]( https://github.com/bemoregt/ofxHistogramFeatures/blob/master/luv.png "exmaple")
+
 ![Histogram example2]( https://github.com/bemoregt/ofxHistogramFeatures/blob/master/hf.png "exmaple2")
 
 ### How TO
